@@ -1,26 +1,31 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className = "screen">
+      {renderColumns(0)}
+      {renderColumns(1)}
+      {renderColumns(2)}
     </div>
+   
   );
+}
+
+function renderColumns(col) {
+  return(
+    <Column 
+      num = {col} />
+  )
+}
+
+function Column(props) {
+  let isPosition = (props.num === 0) ? "nav end" : (props.num === 1) ? "middle" : "right end";
+  return (
+    <div className = {isPosition}>
+      Hello
+    </div>
+  )
 }
 
 export default App;
